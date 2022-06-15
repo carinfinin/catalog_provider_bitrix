@@ -1,7 +1,7 @@
 # catalog_provider_bitrix
 добавлеие в корзину пример
 
-// ADDTOBASKET
+
                 $result = \Bitrix\Catalog\PriceTable::getList([
                     "filter" => [
                         "PRODUCT_ID" => $_REQUEST["item"],
@@ -16,14 +16,9 @@
                     'QUANTITY' => $_REQUEST["quantity"],
                     'CURRENCY' => Bitrix\Currency\CurrencyManager::getBaseCurrency(),
                     'LID' => 's1',
-//                    'PRODUCT_PROVIDER_CLASS' => 'CCatalogProductProvider'
                     'PRODUCT_PROVIDER_CLASS' => '\Qs\Sale\CatalogProductProvider'
                 ];
 
-//                if($arResult['PRICE_TYPE_ID'] == 2 && $arResult['price'][$arResult['PRICE_TYPE_ID']]['PRICE']) {
-////                    $arPropItemBasket['PRICE'] = $arResult['price'][$arResult['PRICE_TYPE_ID']]['PRICE'];
-//                    $arPropItemBasket['CUSTOM_PRICE'] = 'Y';
-//                }
                 $item->setFields($arPropItemBasket);
 
                 $basket->save();
@@ -35,4 +30,3 @@
                     $successfulAdd = false;
                 }
 
-                ////end
